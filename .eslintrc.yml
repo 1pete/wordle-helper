@@ -1,0 +1,3 @@
+extends: '1pete-react'
+rules:
+  'react/function-component-definition': 'off'
