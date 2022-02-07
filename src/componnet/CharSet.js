@@ -3,7 +3,7 @@ import React from 'react'
 
 import { arrayUnique } from '../util'
 
-const CharSet = ({ title, color, chars, setChars }) => {
+const CharSet = ({ title, bgColor, chars, setChars }) => {
   const onChange = (e) => {
     const { value } = e.target
 
@@ -22,6 +22,7 @@ const CharSet = ({ title, color, chars, setChars }) => {
         fullWidth
         value={chars.join('')}
         onChange={onChange}
+        inputProps={{ style: { backgroundColor: bgColor } }}
       />
     </Grid>
   )

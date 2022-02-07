@@ -6,7 +6,7 @@ export const arrayUnique = (array) => {
   return array.filter(onlyUnique)
 }
 
-export const filterResult = (data, exclude, include) => {
+export const filterResult = (data, exclude, include, matches) => {
   let result = data.map((dataSet) => {
     let filtered = dataSet
 
@@ -21,6 +21,12 @@ export const filterResult = (data, exclude, include) => {
         include.every((char) => word.includes(char)),
       )
     }
+
+    matches.forEach((char, i) => {
+      if (!char) return
+
+      filtered = filtered.filter((word) => word[i] === char)
+    })
 
     return filtered
   })
