@@ -17,13 +17,14 @@ const Input = ({ value, setValue }) => {
   return (
     <Grid item xs={2}>
       <TextField
-        className="s"
         color="success"
         value={value}
         onChange={onChange}
         inputProps={{
           maxLength: 2,
           style: {
+            paddingLeft: 10,
+            paddingRight: 10,
             textAlign: 'center',
             backgroundColor: `rgba(106, 170, 100, ${value ? '0.8' : '0.2'})`,
           },

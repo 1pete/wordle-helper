@@ -18,7 +18,7 @@ const Result = ({ items }) => {
       {numberOfResult > LIMIT ? (
         <Typography>Top {LIMIT} Results</Typography>
       ) : null}
-      {items.map((set) => {
+      {items.map((set, i) => {
         const list = set.slice(0, limit)
         if (list.length === 0) return null
 
@@ -26,6 +26,7 @@ const Result = ({ items }) => {
 
         return (
           <Typography
+            key={i}
             style={{
               padding: 10,
               marginBottom: 10,
