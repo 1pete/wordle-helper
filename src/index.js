@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import { AppBar, Toolbar, Typography } from '@mui/material'
+import { AppBar, Container, Toolbar, Typography } from '@mui/material'
 
 import App from './componnet/App'
 
@@ -10,12 +10,17 @@ const Page = () => {
     <>
       <AppBar position="fixed">
         <Toolbar variant="dense">
-          <Typography variant="h6" color="inherit" component="div">
-            Wordle Helper
-          </Typography>
+          <Container fixed maxWidth="sm">
+            <Typography variant="h6" color="inherit" component="div">
+              Wordle Helper
+            </Typography>
+          </Container>
         </Toolbar>
       </AppBar>
-      <App />
+
+      <Container fixed maxWidth="sm">
+        <App />
+      </Container>
     </>
   )
 }

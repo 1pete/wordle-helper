@@ -6,9 +6,7 @@ import Result from './Result'
 
 import { filterResult } from '../util'
 
-import list from '../list.json'
-
-const wordList = list.map((w) => w.toUpperCase())
+import rawData from '../data.json'
 
 const App = () => {
   const [gray, setGray] = useState([])
@@ -22,7 +20,7 @@ const App = () => {
       return
     }
 
-    const data = filterResult(wordList, gray, [...yellow, ...green])
+    const data = filterResult(rawData, gray, [...yellow, ...green])
 
     setResult(data)
   }

@@ -1,22 +1,42 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { Typography } from '@mui/material'
 
+const LIMIT = 400
+
 const Result = ({ items }) => {
-  const topResult = useMemo(() => {
-    if (!items) return []
-
-    return items.slice(0, 200)
-  }, [items])
-
   if (!items) {
     return null
   }
 
+  const numberOfResult = items.reduce((acc, set) => acc + set.length, 0)
+
+  let limit = LIMIT
+
   return (
     <>
-      <Typography>Results: {items.length}</Typography>
-      {items.length > 200 ? <Typography>Top 200 Results</Typography> : null}
-      {topResult.join(', ')}
+      <Typography>Results: {numberOfResult}</Typography>
+      {numberOfResult > LIMIT ? (
+        <Typography>Top {LIMIT} Results</Typography>
+      ) : null}
+      {items.map((set) => {
+        const list = set.slice(0, limit)
+        if (list.length === 0) return null
+
+        limit -= list.length
+
+        return (
+          <Typography
+            style={{
+              padding: 10,
+              marginBottom: 10,
+              border: '1px solid lightgrey',
+              borderRadius: 10,
+            }}
+          >
+            {list.join(', ')}
+          </Typography>
+        )
+      })}
     </>
   )
 }

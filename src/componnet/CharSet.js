@@ -19,6 +19,7 @@ const CharSet = ({ title, color, chars, setChars }) => {
       <TextField
         label={title}
         variant="outlined"
+        fullWidth
         value={chars.join('')}
         onChange={onChange}
       />
