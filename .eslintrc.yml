@@ -1,3 +1,5 @@
 extends: '1pete-react'
+env:
+  browser: true
 rules:
   'react/function-component-definition': 'off'

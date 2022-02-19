@@ -26,3 +26,17 @@ const Page = () => {
 }
 
 render(<Page />, document.getElementById('app-root'))
+
+if ('serviceWorker' in navigator) {
+  const scope = '/wordle-helper/'
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register(`${scope}service-worker.js`, { scope })
+      .then((registration) => {
+        console.log('SW registered: ', registration)
+      })
+      .catch((registrationError) => {
+        console.log('SW registration failed: ', registrationError)
+      })
+  })
+}
